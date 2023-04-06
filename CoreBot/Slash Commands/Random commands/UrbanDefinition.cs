@@ -1,6 +1,5 @@
 ﻿using System.Text.RegularExpressions;
 using CoreBot.External_Classes;
-using DSharpPlus;
 using DSharpPlus.Entities;
 using DSharpPlus.Interactivity.Extensions;
 using DSharpPlus.SlashCommands;
@@ -11,7 +10,7 @@ namespace CoreBot.Slash_Commands.Random_commands;
 public class UrbanDefinition : ApplicationCommandModule
     {
         private const int ResultsPerPage = 1;
-        private long page = 1;
+        private long _page = 1;
         [SlashCommand("urban", "Search for a word on Urban Dictionary.")]
         public async Task DefineCommand(InteractionContext ctx,
             [Option("query", "The search query for the results.")] string query)
@@ -32,7 +31,7 @@ public class UrbanDefinition : ApplicationCommandModule
 
                 await ctx.DeferAsync();
                 
-                var startIndex = (page - 1) * ResultsPerPage;
+                var startIndex = (_page - 1) * ResultsPerPage;
                 
                 var definition = entry.Definition;
                 if (definition != null)
@@ -59,7 +58,7 @@ public class UrbanDefinition : ApplicationCommandModule
 
                         var message = new DiscordMessageBuilder().AddEmbed(
                             embed.WithFooter(
-                                $"Page {page}/{(int)Math.Ceiling((double)result.List.Count / ResultsPerPage)}"));
+                                $"Page {_page}/{(int)Math.Ceiling((double)result.List.Count / ResultsPerPage)}"));
 
                         var responseBuilder = await ctx.EditResponseAsync(new DiscordWebhookBuilder(message));
 
@@ -77,14 +76,14 @@ public class UrbanDefinition : ApplicationCommandModule
 
                             if (reactionResult.Result.Emoji == DiscordEmoji.FromName(ctx.Client, ":arrow_left:"))
                             {
-                                page = Math.Max(1, page - 1);
-                                startIndex = (page - 1) * ResultsPerPage;
+                                _page = Math.Max(1, _page - 1);
+                                startIndex = (_page - 1) * ResultsPerPage;
                             }
                             else if (reactionResult.Result.Emoji == DiscordEmoji.FromName(ctx.Client, ":arrow_right:"))
                             {
-                                page = Math.Min((int)Math.Ceiling((double)result.List.Count / ResultsPerPage),
-                                    page + 1);
-                                startIndex = (page - 1) * ResultsPerPage;
+                                _page = Math.Min((int)Math.Ceiling((double)result.List.Count / ResultsPerPage),
+                                    _page + 1);
+                                startIndex = (_page - 1) * ResultsPerPage;
                             }
 
 
@@ -117,7 +116,7 @@ public class UrbanDefinition : ApplicationCommandModule
                             if (result.List.Count > ResultsPerPage)
                             {
                                 embed.WithFooter(
-                                    $"Page {page}/{(int)Math.Ceiling((double)result.List.Count / ResultsPerPage)}");
+                                    $"Page {_page}/{(int)Math.Ceiling((double)result.List.Count / ResultsPerPage)}");
                             }
 
                             message = new DiscordMessageBuilder().AddEmbed(embed);
