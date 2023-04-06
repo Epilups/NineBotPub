@@ -11,6 +11,8 @@ public class Avatar : ApplicationCommandModule
         DiscordUser? user = null)
     {
         user ??= ctx.User;
+        
+        //comment
 
         DiscordMember? member = default;
         try
