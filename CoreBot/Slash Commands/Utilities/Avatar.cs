@@ -11,8 +11,6 @@ public class Avatar : ApplicationCommandModule
         DiscordUser? user = null)
     {
         user ??= ctx.User;
-        
-        //comment
 
         DiscordMember? member = default;
         try
@@ -23,10 +21,7 @@ public class Avatar : ApplicationCommandModule
         {
             // ignored
         }
+        await ctx.CreateResponseAsync(new DiscordInteractionResponseBuilder().WithContent($"{member?.AvatarUrl}".Replace("size=1024", "size=4096")));
 
-        if (member == default || member.GuildAvatarUrl is null)
-        {
-            await ctx.CreateResponseAsync(new DiscordInteractionResponseBuilder().WithContent($"{user.AvatarUrl}".Replace("size=1024", "size=4096")));
-        }
     }
 }
