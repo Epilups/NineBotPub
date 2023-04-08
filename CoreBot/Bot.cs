@@ -20,7 +20,7 @@ public class Bot
     public async Task RunAsync()
     {
         var json = string.Empty;
-        using (var fs = File.OpenRead("configuration.json"))
+        await using (var fs = File.OpenRead("configuration.json"))
         using (var sr = new StreamReader(fs, new UTF8Encoding(false)))
             json = await sr.ReadToEndAsync();
 
