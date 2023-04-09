@@ -1,0 +1,1 @@
+﻿cd /app/heroku_output && ./Corebot -Dserver.port=$PORT
