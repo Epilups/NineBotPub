@@ -19,19 +19,19 @@ public class Bot
 
     public async Task RunAsync()
     {
-        var json = string.Empty;
-        await using (var fs = File.OpenRead("configuration.json"))
-        using (var sr = new StreamReader(fs, new UTF8Encoding(false)))
-            json = await sr.ReadToEndAsync();
+        //var json = string.Empty;
+        //await using (var fs = File.OpenRead("configuration.json"))
+        //using (var sr = new StreamReader(fs, new UTF8Encoding(false)))
+            //json = await sr.ReadToEndAsync();
 
-        var configJson = JsonConvert.DeserializeObject<ConfigurationJSON>(json);
+        //var configJson = JsonConvert.DeserializeObject<ConfigurationJSON>(json);
         
         var config = new DiscordConfiguration()
         {
             Intents = DiscordIntents.All,
-            Token = configJson.Token,
+            Token = "MTA4NDQ2NDY4Mjk1MTI1MDAxMQ.GxumsV.QsHkK9QNm9DRy3i9dJM1oCtK8ZvSFlpl05b4EU",
             TokenType = TokenType.Bot,
-            AutoReconnect = true,
+            AutoReconnect = true
         };
         
         Client = new DiscordClient(config);
@@ -44,7 +44,7 @@ public class Bot
         
         var commandsConfig = new CommandsNextConfiguration()
         {
-            StringPrefixes = new [] { configJson.Prefix },
+            StringPrefixes = new [] { ">" },
             EnableMentionPrefix = true,
             EnableDms = true,
             EnableDefaultHelp = false
