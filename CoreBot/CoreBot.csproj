@@ -12,6 +12,7 @@
       <Content Include="..\.dockerignore">
         <Link>.dockerignore</Link>
       </Content>
+      <Content Include="bin\Debug\net7.0\configuration.json" />
     </ItemGroup>
 
     <ItemGroup>
@@ -32,10 +33,6 @@
     <ItemGroup>
       <Folder Include="Commands" />
       <Folder Include="Database Models" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <None Remove="configuration.json" />
     </ItemGroup>
 
 </Project>
