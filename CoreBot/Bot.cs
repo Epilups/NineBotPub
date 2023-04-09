@@ -19,12 +19,14 @@ public class Bot
 
     public async Task RunAsync()
     {
-        //var json = string.Empty;
-        //await using (var fs = File.OpenRead("configuration.json"))
-        //using (var sr = new StreamReader(fs, new UTF8Encoding(false)))
-            //json = await sr.ReadToEndAsync();
+        /*
+        var json = string.Empty;
+        await using (var fs = File.OpenRead("configuration.json"))
+        using (var sr = new StreamReader(fs, new UTF8Encoding(false)))
+        json = await sr.ReadToEndAsync();
 
-        //var configJson = JsonConvert.DeserializeObject<ConfigurationJSON>(json);
+        var configJson = JsonConvert.DeserializeObject<ConfigurationJSON>(json);
+        */
         
         var config = new DiscordConfiguration()
         {
