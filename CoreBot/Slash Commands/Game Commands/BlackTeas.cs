@@ -133,6 +133,6 @@ public class BlackTeas : ApplicationCommandModule
         }
         private bool IsValidWord(string word)
         {
-            return ((IList)_words).Contains(word);
+            return _words.Contains(word);
         }
     }
