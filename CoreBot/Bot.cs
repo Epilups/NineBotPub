@@ -19,11 +19,9 @@ public class Bot
 
     public async Task RunAsync()
     {
-        
+
         var json = string.Empty;
-        var file = Path.Combine(Directory.GetCurrentDirectory(), "\\configuration.json");
-        Console.WriteLine(file);
-        await using (var fs = File.OpenRead(file))
+        await using (var fs = File.OpenRead(@"CoreBot/configuration.json"))
         using (var sr = new StreamReader(fs, new UTF8Encoding(false))) json = await sr.ReadToEndAsync();
 
         var configJson = JsonConvert.DeserializeObject<ConfigurationJSON>(json);
