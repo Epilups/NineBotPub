@@ -7,13 +7,13 @@ namespace CoreBot.Slash_Commands.Game_Commands;
 
 public class BlackTeas : ApplicationCommandModule
     {
-        private readonly string[] _words;
-        
+        private readonly HttpClient _httpClient = new ();
+        private List<string> _words = new ();
         public BlackTeas()
         {
-            _words = Configuration.words;
+            PopulateWordsList().Wait();
         }
-        
+
         [SlashCommand("blacktea", "Play a game of black tea")]
         public async Task Game(InteractionContext ctx,
             [Option("rounds", "The number of rounds to play")]
@@ -94,6 +94,20 @@ public class BlackTeas : ApplicationCommandModule
             await ctx.Channel.SendMessageAsync(embed: finalEmbed);
         }
         
+        private async Task PopulateWordsList()
+        {
+            var response = await _httpClient.GetAsync("https://raw.githubusercontent.com/dwyl/english-words/master/words_alpha.txt");
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                _words = content.Split("\n").ToList();
+            }
+            else
+            {
+                throw new Exception("Failed to download words list");
+            }
+        }
+        
         private string GenerateRandomSequence()
         {
             Random random = new Random();
@@ -108,7 +122,7 @@ public class BlackTeas : ApplicationCommandModule
         }
         private bool CheckForWords(string sequence)
         {
-            foreach (string w in _words)
+            foreach (string w in _words) 
             {
                 if (w.Contains(sequence))
                 {
