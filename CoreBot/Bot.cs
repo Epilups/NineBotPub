@@ -22,6 +22,7 @@ public class Bot
         
         var json = string.Empty;
         var projectFolder = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..\\..\\..\\"));
+        Console.WriteLine(projectFolder);
         var file = Path.Combine(projectFolder, "./configuration.json");
         await using (var fs = File.OpenRead(file))
         using (var sr = new StreamReader(fs, new UTF8Encoding(false))) json = await sr.ReadToEndAsync();
