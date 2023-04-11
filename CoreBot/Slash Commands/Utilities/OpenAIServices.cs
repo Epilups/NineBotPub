@@ -1,6 +1,5 @@
 ﻿using DSharpPlus.Entities;
 using DSharpPlus.SlashCommands;
-using Newtonsoft.Json;
 using OpenAI_API;
 using OpenAI_API.Models;
 
@@ -15,8 +14,7 @@ public class OpenAIServices : ApplicationCommandModule
     {
         await ctx.DeferAsync();
 
-        var secrets = JsonConvert.DeserializeObject<ConfigurationJSON>(await File.ReadAllTextAsync("configuration.json"));
-        var apiKey = secrets.PaulaKey;
+        var apiKey = Configuration.PaulaKey;
         var openai = new OpenAIAPI(apiKey);
 
         var completions = await openai.Completions.CreateCompletionAsync(
@@ -49,14 +47,12 @@ public class OpenAIServices : ApplicationCommandModule
     {
         await ctx.DeferAsync();
 
-        var secrets = JsonConvert.DeserializeObject<ConfigurationJSON>(await File.ReadAllTextAsync("configuration.json"));
-        var apiKey = secrets.PaulaKey;
+        var apiKey = Configuration.PaulaKey;
         var openai = new OpenAIAPI(apiKey);
-
         var chat = openai.Chat.CreateConversation();
 
-        var dev = secrets.Devmode;
-        var dan = secrets.Dan;
+        var dev = Configuration.DevMode;
+        var dan = Configuration.Dan;
 
         if (mode == "dan")
         {
@@ -107,8 +103,8 @@ public class OpenAIServices : ApplicationCommandModule
         string prompt)
     {
         await ctx.DeferAsync();
-        var secrets = JsonConvert.DeserializeObject<ConfigurationJSON>(await File.ReadAllTextAsync("configuration.json"));
-        var apiKey = secrets.PaulaKey;
+
+        var apiKey = Configuration.PaulaKey;
         var openai = new OpenAIAPI(apiKey);
         var images = openai.ImageGenerations.CreateImageAsync(prompt);
         var response = images.Result;

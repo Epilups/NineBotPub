@@ -8,7 +8,6 @@ using DSharpPlus.EventArgs;
 using DSharpPlus.Interactivity;
 using DSharpPlus.Interactivity.Extensions;
 using DSharpPlus.SlashCommands;
-using Newtonsoft.Json;
 
 namespace CoreBot;
 
@@ -19,18 +18,11 @@ public class Bot
 
     public async Task RunAsync()
     {
-
-        var json = string.Empty;
-        await using (var fs = File.OpenRead("CoreBot/bin/release/net7.0/linux-64x/configuration.json"))
-        using (var sr = new StreamReader(fs, new UTF8Encoding(false))) json = await sr.ReadToEndAsync();
-
-        var configJson = JsonConvert.DeserializeObject<ConfigurationJSON>(json);
-        
         
         var config = new DiscordConfiguration()
         {
             Intents = DiscordIntents.All,
-            Token = configJson.Token,
+            Token = Configuration.Token,
             TokenType = TokenType.Bot,
             AutoReconnect = true
         };
@@ -45,7 +37,7 @@ public class Bot
         
         var commandsConfig = new CommandsNextConfiguration()
         {
-            StringPrefixes = new [] {configJson.Prefix},
+            StringPrefixes = new [] {Configuration.Prefix},
             EnableMentionPrefix = true,
             EnableDms = true,
             EnableDefaultHelp = false

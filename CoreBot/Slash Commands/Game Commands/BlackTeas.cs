@@ -11,7 +11,7 @@ public class BlackTeas : ApplicationCommandModule
         
         public BlackTeas()
         {
-            _words = File.ReadAllLines("490k_words.txt");
+            _words = Configuration.words;
         }
         
         [SlashCommand("blacktea", "Play a game of black tea")]
