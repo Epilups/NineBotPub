@@ -21,7 +21,7 @@ public class Bot
     {
 
         var json = string.Empty;
-        await using (var fs = File.OpenRead("CoreBot/bin/Debug/net7.0/configuration.json"))
+        await using (var fs = File.OpenRead("CoreBot/bin/release/net7.0/linux-64x/configuration.json"))
         using (var sr = new StreamReader(fs, new UTF8Encoding(false))) json = await sr.ReadToEndAsync();
 
         var configJson = JsonConvert.DeserializeObject<ConfigurationJSON>(json);
