@@ -23,6 +23,21 @@ public class Bot
         var json = string.Empty;
         var projectFolder = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..\\..\\..\\"));
         Console.WriteLine(projectFolder);
+        
+        DirectoryInfo place = new DirectoryInfo(projectFolder);
+     
+        // Using GetFiles() method to get list of all
+        // the files present in the Train directory
+        FileInfo[] Files = place.GetFiles();
+        Console.WriteLine("Files are:");
+        Console.WriteLine();
+     
+        // Display the file names
+        foreach(FileInfo i in Files)
+        {
+            Console.WriteLine("File Name - {0}", i.Name);
+        }
+        
         var file = Path.Combine(projectFolder, "CoreBot\\configuration.json");
         Console.WriteLine(file);
         await using (var fs = File.OpenRead(file))
