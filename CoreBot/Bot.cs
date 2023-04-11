@@ -21,7 +21,7 @@ public class Bot
     {
         
         var json = string.Empty;
-        var projectFolder = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, @"../../../"));
+        var projectFolder = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..\\..\\..\\..\\"));
         Console.WriteLine(projectFolder);
         
         DirectoryInfo place = new DirectoryInfo(projectFolder);
