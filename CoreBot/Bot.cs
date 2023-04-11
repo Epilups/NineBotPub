@@ -22,7 +22,7 @@ public class Bot
         
         var json = string.Empty;
         var projectFolder = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
-        var file = Path.Combine(projectFolder, @"CoreBot\configuration.json");
+        var file = Path.Combine(projectFolder, "/CoreBot/configuration.json");
         await using (var fs = File.OpenRead(file))
         using (var sr = new StreamReader(fs, new UTF8Encoding(false))) json = await sr.ReadToEndAsync();
 
