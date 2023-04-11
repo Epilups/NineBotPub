@@ -9,7 +9,7 @@
     </PropertyGroup>
 
     <Target Name="CopyCustomContentOnPublish" AfterTargets="Publish">
-        <Copy SourceFiles="configuration.json" DestinationFolder="$(PublishDir)/CoreBot" />
+        <Copy SourceFiles="configuration.json" DestinationFolder="$(PublishDir)/configuration.json" />
     </Target>
 
     <ItemGroup>
