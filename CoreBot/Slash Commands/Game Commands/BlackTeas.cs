@@ -103,7 +103,7 @@ public class BlackTeas : ApplicationCommandModule
             }
             else
             {
-                throw new Exception("Failed to download words list");
+                throw new Exception("Failed to access words list");
             }
         }
         

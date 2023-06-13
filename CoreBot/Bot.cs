@@ -19,7 +19,7 @@ public class Bot
     public async Task RunAsync()
     {
         
-        var config = new DiscordConfiguration()
+        var config = new DiscordConfiguration
         {
             Intents = DiscordIntents.All,
             Token = Configuration.Token,
