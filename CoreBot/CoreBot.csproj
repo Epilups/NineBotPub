@@ -36,6 +36,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="bin\Debug\net7.0" />
       <Folder Include="Commands" />
       <Folder Include="Database Models" />
     </ItemGroup>
