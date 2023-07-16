@@ -1,5 +1,4 @@
-﻿using System.Text;
-using CoreBot.Slash_Commands.Game_Commands;
+﻿using CoreBot.Slash_Commands.Game_Commands;
 using CoreBot.Slash_Commands.Random_commands;
 using CoreBot.Slash_Commands.Utilities;
 using DSharpPlus;
