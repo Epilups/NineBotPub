@@ -7,17 +7,12 @@
         <Nullable>enable</Nullable>
         <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
     </PropertyGroup>
-
-    <Target Name="CopyCustomContentOnPublish" AfterTargets="Publish">
-        <Copy SourceFiles="configuration.json" DestinationFolder="$(PublishDir)/configuration.json" />
-    </Target>
+    
 
     <ItemGroup>
       <Content Include="..\.dockerignore">
         <Link>.dockerignore</Link>
       </Content>
-      <Content Include="bin\Debug\net7.0\configuration.json" />
-      <Content Include="bin\Debug\net7.0\Procfile" />
     </ItemGroup>
 
     <ItemGroup>
