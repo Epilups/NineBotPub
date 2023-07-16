@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1PDNyyhazsm0AgR5Oo8ttvE9peTo/hsgWbtvGRaDU3HGsPXcQh/bY8L9Iyokiiu9AO8ca53GdUPkm13GzOhntw==",
+  "dgSpecHash": "vAQrJJtyHo5Q+pwkzIweF80MGUiZZvsMu3VEioXfTxOESiYGzLJK1voGiABwI6bmXRPNKkaVRBXEqLVDKa9xxA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\latvi\\RiderProjects\\CoreBot\\CoreBot\\CoreBot.csproj",
+  "projectFilePath": "C:\\Users\\latvi\\RiderProjects\\NineBotClone\\CoreBot\\CoreBot.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\latvi\\.nuget\\packages\\concurrenthashset\\1.3.0\\concurrenthashset.1.3.0.nupkg.sha512",
     "C:\\Users\\latvi\\.nuget\\packages\\dsharpplus\\5.0.0-nightly-01488\\dsharpplus.5.0.0-nightly-01488.nupkg.sha512",

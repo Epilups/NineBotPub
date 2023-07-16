@@ -1364,11 +1364,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\latvi\\RiderProjects\\CoreBot\\CoreBot\\CoreBot.csproj",
+      "projectUniqueName": "C:\\Users\\latvi\\RiderProjects\\NineBotClone\\CoreBot\\CoreBot.csproj",
       "projectName": "CoreBot",
-      "projectPath": "C:\\Users\\latvi\\RiderProjects\\CoreBot\\CoreBot\\CoreBot.csproj",
+      "projectPath": "C:\\Users\\latvi\\RiderProjects\\NineBotClone\\CoreBot\\CoreBot.csproj",
       "packagesPath": "C:\\Users\\latvi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\latvi\\RiderProjects\\CoreBot\\CoreBot\\obj\\",
+      "outputPath": "C:\\Users\\latvi\\RiderProjects\\NineBotClone\\CoreBot\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
