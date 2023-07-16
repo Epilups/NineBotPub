@@ -53,15 +53,14 @@ public class OpenAIServices : ApplicationCommandModule
 
         var dev = Configuration.DevMode;
         var dan = Configuration.Dan;
-        var troll = Configuration.TrollMode;
 
         if (mode == "dan")
         {
-            chat.AppendSystemMessage(troll);
+            chat.AppendSystemMessage(dan);
         }
         else if (mode == "devmode")
         {
-            chat.AppendSystemMessage(troll);
+            chat.AppendSystemMessage(dev);
         }
         else
         {
