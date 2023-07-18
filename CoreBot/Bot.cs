@@ -1,4 +1,5 @@
-﻿using CoreBot.Slash_Commands;
+﻿using CoreBot.External_Classes;
+using CoreBot.Slash_Commands;
 using CoreBot.Slash_Commands.Game_Commands;
 using CoreBot.Slash_Commands.Random_commands;
 using CoreBot.Slash_Commands.Utilities;
@@ -12,7 +13,7 @@ using DSharpPlus.SlashCommands;
 
 namespace CoreBot;
 
-public class Bot
+public class Bot : ApplicationCommandModule
 {
     public DiscordClient? Client { get; private set; }
     public CommandsNextExtension? Commands {get; private set; }
@@ -36,7 +37,7 @@ public class Bot
         
         Client.Ready += OnClientReady;
 
-        Client.ComponentInteractionCreated += ButtonPressResponse;
+        Client.ComponentInteractionCreated += ButtonPressResponseTest;
         
         var commandsConfig = new CommandsNextConfiguration()
         {
@@ -63,24 +64,38 @@ public class Bot
         slashCommandsConfig.RegisterCommands<PolarBear>();
         slashCommandsConfig.RegisterCommands<Trivia>();
         slashCommandsConfig.RegisterCommands<BlackTeas>();
-        slashCommandsConfig.RegisterCommands<TestingComponents>();
         
         
         await Client.ConnectAsync();
         await Task.Delay(-1);
     }
-
-    private async Task ButtonPressResponse(DiscordClient sender, ComponentInteractionCreateEventArgs e)
+    
+    private async Task ButtonPressResponseTest(DiscordClient sender, ComponentInteractionCreateEventArgs e)
     {
+        DiscordButtonComponent button1 = new DiscordButtonComponent(ButtonStyle.Primary, "1", "Button 1");
+        DiscordButtonComponent button2 = new DiscordButtonComponent(ButtonStyle.Primary, "2", "Button 2");
+
+        var embed1 = new DiscordEmbedBuilder()
+            .WithTitle("Test 1")
+            .WithColor(DiscordColor.Azure)
+            .WithDescription("This is a test message to see if button 1 works");
+        
+        var embed2 = new DiscordEmbedBuilder()
+            .WithTitle("Test 2")
+            .WithColor(DiscordColor.Azure)
+            .WithDescription("This is a test message to see if button 2 works");
+        
         if (e.Interaction.Data.CustomId == "1")
         {
             await e.Interaction.CreateResponseAsync(InteractionResponseType.UpdateMessage,
-                new DiscordInteractionResponseBuilder().WithContent("Button press 1"));
+                new DiscordInteractionResponseBuilder().AddEmbed(embed1)
+                    .AddComponents(button1, button2));
         }
         else if (e.Interaction.Data.CustomId == "2")
         {
             await e.Interaction.CreateResponseAsync(InteractionResponseType.UpdateMessage,
-                new DiscordInteractionResponseBuilder().WithContent("Button press 2"));
+                new DiscordInteractionResponseBuilder().AddEmbed(embed2)
+                    .AddComponents(button1, button2));
         }
     }
 
