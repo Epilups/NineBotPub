@@ -1,27 +1,20 @@
-﻿using DSharpPlus.Entities;
+﻿using DSharpPlus;
+using DSharpPlus.Entities;
 using DSharpPlus.SlashCommands;
 
 namespace CoreBot.Slash_Commands.Utilities;
 
 public class Avatar : ApplicationCommandModule
 {
-    [SlashCommand("avatar",
-        "Returns the avatar of the provided user. Defaults to yourself if no user is provided.")]
-    public static async Task AvatarCommand(InteractionContext ctx, [Option("user", "The user whose avatar to get.")] 
-        DiscordUser? user = null)
+    [SlashCommand("avatar", "Fetches a user's avatar with URL.")]
+    public async Task AvatarAsync(InteractionContext ctx, [Option("user", "User to fetch the avatar from.")] DiscordUser user)
     {
-        user ??= ctx.User;
+        var img = user.GetAvatarUrl(ImageFormat.Png, 4096);
 
-        DiscordMember? member = default;
-        try
-        {
-            member = await ctx.Guild.GetMemberAsync(user.Id);
-        }
-        catch
-        {
-            // ignored
-        }
-        await ctx.CreateResponseAsync(new DiscordInteractionResponseBuilder().WithContent($"{member?.AvatarUrl}".Replace("size=1024", "size=4096")));
+        var embed = new DiscordEmbedBuilder()
+            .WithTitle($"Avatar for user {user.Username}")
+            .WithImageUrl(img);
 
+        await ctx.CreateResponseAsync(embed);
     }
 }
