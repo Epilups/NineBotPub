@@ -24,7 +24,7 @@ public class Purges : ApplicationCommandModule
         }
 
         await ctx.Channel.DeleteMessagesAsync(deleteable, "NineBot Purge");
-        await ctx.CreateResponseAsync($"✅ Deleted {deleteable.Count()} messages.", true);
+        await ctx.CreateResponseAsync($"✅ Deleted {deleteable.Count()} messages.");
     }
     
     [SlashCommand("regular", "Clears chat without any special parameters.")]
