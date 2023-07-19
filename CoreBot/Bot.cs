@@ -58,6 +58,7 @@ public class Bot
         slashCommandsConfig.RegisterCommands<Coinflip>();
         slashCommandsConfig.RegisterCommands<Information>();
         slashCommandsConfig.RegisterCommands<Moderation>();
+        slashCommandsConfig.RegisterCommands<Purges>();
         
         
         await Client.ConnectAsync();
