@@ -8,6 +8,8 @@ using DSharpPlus.EventArgs;
 using DSharpPlus.Interactivity;
 using DSharpPlus.Interactivity.Extensions;
 using DSharpPlus.SlashCommands;
+using DSharpPlus.SlashCommands.Attributes;
+using DSharpPlus.SlashCommands.EventArgs;
 
 namespace CoreBot;
 
@@ -59,6 +61,8 @@ public class Bot
         slashCommandsConfig.RegisterCommands<Information>();
         slashCommandsConfig.RegisterCommands<Moderation>();
         slashCommandsConfig.RegisterCommands<Purges>();
+
+        slashCommandsConfig.SlashCommandErrored += OnSlashCommandError;
         
         
         await Client.ConnectAsync();
@@ -68,5 +72,30 @@ public class Bot
     private Task OnClientReady(DiscordClient sender, ReadyEventArgs e)
     {
         return Task.CompletedTask;
+    }
+
+    private async Task OnSlashCommandError(SlashCommandsExtension sender, SlashCommandErrorEventArgs e)
+    {
+        await e.Context.DeferAsync(true);
+        
+        if (e.Exception is SlashExecutionChecksFailedException)
+        {
+            var castedException = (SlashExecutionChecksFailedException)e.Exception;
+            string cooldownTimer = string.Empty;
+
+            foreach (var check in castedException.FailedChecks)
+            {
+                var cooldown = (SlashCooldownAttribute)check;
+                TimeSpan timeLeft = cooldown.GetRemainingCooldown(e.Context);
+                cooldownTimer = timeLeft.ToString(@"hh\:mm\:ss");
+            }
+
+            var cooldownMessage = new DiscordEmbedBuilder()
+                .WithTitle($"Wait for the cooldown to end {e.Context.User.Username}")
+                .WithColor(DiscordColor.Red)
+                .WithDescription(cooldownTimer);
+            await e.Context.EditResponseAsync(new DiscordWebhookBuilder().AddEmbed(cooldownMessage));
+        }
+       
     }
 }

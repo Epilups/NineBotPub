@@ -66,7 +66,6 @@ public class Moderation : ApplicationCommandModule
             await ctx.CreateResponseAsync("⚠️ Invalid ID", true);
             return;
         }
-
         try
         {
             await ctx.Guild.BanMemberAsync(id, 7, reason);

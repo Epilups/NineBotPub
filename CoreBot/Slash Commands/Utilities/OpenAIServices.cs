@@ -1,5 +1,6 @@
 ﻿using DSharpPlus.Entities;
 using DSharpPlus.SlashCommands;
+using DSharpPlus.SlashCommands.Attributes;
 using OpenAI_API;
 using OpenAI_API.Models;
 
@@ -8,6 +9,8 @@ namespace CoreBot.Slash_Commands.Utilities;
 public class OpenAIServices : ApplicationCommandModule
 {
     [SlashCommand("davinci", "Generate text using OpenAI's Davinci model.")]
+    [SlashCooldown(1, 120, SlashCooldownBucketType.User)]
+
     public async Task GenerateResponse(InteractionContext ctx,
         [Option("prompt", "The prompt for the AI completion")]
         string prompt)
@@ -39,6 +42,8 @@ public class OpenAIServices : ApplicationCommandModule
     }
 
     [SlashCommand("chat", "Create a conversation with ChatGPT")]
+    [SlashCooldown(1, 120, SlashCooldownBucketType.User)]
+
     public async Task GenerateConversation(InteractionContext ctx,
         [Option("prompt", "The prompt for the AI completion")]
         string query,
@@ -98,6 +103,8 @@ public class OpenAIServices : ApplicationCommandModule
     }
 
     [SlashCommand("imageGen", "Generate an image using OpenAI's Dall-e model.")]
+    [SlashCooldown(1, 120, SlashCooldownBucketType.User)]
+
     public async Task ImageGen(InteractionContext ctx,
         [Option("prompt", "The prompt for the image creation")]
         string prompt)

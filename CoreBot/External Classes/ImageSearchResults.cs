@@ -32,7 +32,6 @@ public class ImageSearchResults
             return images[(int)index];
         }
     }
-
     public IReadOnlyList<IImageResult> Images => images.AsReadOnly();
 
     public int Count => images.Count;

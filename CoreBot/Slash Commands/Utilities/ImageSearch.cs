@@ -2,6 +2,7 @@
 using DSharpPlus.Entities;
 using DSharpPlus.Interactivity.Extensions;
 using DSharpPlus.SlashCommands;
+using DSharpPlus.SlashCommands.Attributes;
 
 namespace CoreBot.Slash_Commands.Utilities;
 
@@ -10,6 +11,8 @@ public class ImageSearch : ApplicationCommandModule
     private const int ResultsPerPage = 1;
 
     [SlashCommand("image", "Search for images.")]
+    [SlashCooldown(1, 120, SlashCooldownBucketType.User)]
+
     public async Task SearchImages(InteractionContext ctx,
         [Option("query", "The search query.")] string query,
         [Option("page", "The page number.")] long page = 1)

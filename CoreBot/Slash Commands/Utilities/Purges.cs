@@ -124,7 +124,7 @@ public class Purges : ApplicationCommandModule
         await deleteMessagesAsync(ctx, messages);
     }
     
-    private Regex ImageRegex = new Regex(@"\.(png|gif|jpg|jpeg|tiff|webp)");
+    private Regex ImageRegex = new(@"\.(png|gif|jpg|jpeg|tiff|webp)");
     [SlashCommand("images", "Clears chat messages with attachments.")]
     public async Task ImagesPurgeAsync(InteractionContext ctx,
         [Option("limit", "Maximum amount of messages to fetch in this Purge")][Maximum(100)][Minimum(1)] long limit = 50,
