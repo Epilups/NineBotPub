@@ -61,6 +61,7 @@ public class Bot
         slashCommandsConfig.RegisterCommands<Information>();
         slashCommandsConfig.RegisterCommands<Moderation>();
         slashCommandsConfig.RegisterCommands<Purges>();
+        slashCommandsConfig.RegisterCommands<StealEmojiMessage>();
 
         slashCommandsConfig.SlashCommandErrored += OnSlashCommandError;
         
@@ -94,8 +95,8 @@ public class Bot
                 .WithTitle($"Wait for the cooldown to end {e.Context.User.Username}")
                 .WithColor(DiscordColor.Red)
                 .WithDescription(cooldownTimer);
+            
             await e.Context.EditResponseAsync(new DiscordWebhookBuilder().AddEmbed(cooldownMessage));
         }
-       
     }
 }

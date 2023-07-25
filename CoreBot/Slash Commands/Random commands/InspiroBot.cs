@@ -9,6 +9,7 @@ public class InspiroBot : ApplicationCommandModule
     private readonly HttpClient _httpClient = new ();
     [SlashCommand("inspire", "Generates an inspirational image from Inspirobot")]
     [SlashCooldown(1, 120, SlashCooldownBucketType.User)]
+    
     public async Task Inspire(InteractionContext ctx)
     {
         await ctx.DeferAsync();

@@ -34,6 +34,7 @@
     <ItemGroup>
       <Folder Include="Commands" />
       <Folder Include="Database Models" />
+      <Folder Include="Modals" />
     </ItemGroup>
 
     <ItemGroup>
