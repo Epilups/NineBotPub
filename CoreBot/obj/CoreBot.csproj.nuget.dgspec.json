@@ -44,6 +44,14 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Azure.AI.Vision.ImageAnalysis": {
+              "target": "Package",
+              "version": "[0.13.0-beta.1, )"
+            },
+            "Azure.Core": {
+              "target": "Package",
+              "version": "[1.34.0, )"
+            },
             "DSharpPlus": {
               "target": "Package",
               "version": "[5.0.0-nightly-01488, )"

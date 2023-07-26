@@ -15,5 +15,7 @@
   </ItemGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="$(NuGetPackageRoot)sixlabors.imagesharp\3.0.1\build\SixLabors.ImageSharp.props" Condition="Exists('$(NuGetPackageRoot)sixlabors.imagesharp\3.0.1\build\SixLabors.ImageSharp.props')" />
+    <Import Project="$(NuGetPackageRoot)azure.ai.vision.common\0.13.0-beta.1\build\Azure.AI.Vision.Common.props" Condition="Exists('$(NuGetPackageRoot)azure.ai.vision.common\0.13.0-beta.1\build\Azure.AI.Vision.Common.props')" />
+    <Import Project="$(NuGetPackageRoot)azure.ai.vision.imageanalysis\0.13.0-beta.1\build\Azure.AI.Vision.ImageAnalysis.props" Condition="Exists('$(NuGetPackageRoot)azure.ai.vision.imageanalysis\0.13.0-beta.1\build\Azure.AI.Vision.ImageAnalysis.props')" />
   </ImportGroup>
 </Project>

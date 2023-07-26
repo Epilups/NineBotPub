@@ -62,6 +62,8 @@ public class Bot
         slashCommandsConfig.RegisterCommands<Moderation>();
         slashCommandsConfig.RegisterCommands<Purges>();
         slashCommandsConfig.RegisterCommands<StealEmojiMessage>();
+        slashCommandsConfig.RegisterCommands<Translation>();
+        slashCommandsConfig.RegisterCommands<ComputerVision>();
 
         slashCommandsConfig.SlashCommandErrored += OnSlashCommandError;
         

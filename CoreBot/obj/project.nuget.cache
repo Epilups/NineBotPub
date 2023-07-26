@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "vAQrJJtyHo5Q+pwkzIweF80MGUiZZvsMu3VEioXfTxOESiYGzLJK1voGiABwI6bmXRPNKkaVRBXEqLVDKa9xxA==",
+  "dgSpecHash": "86ZxlMgn1oVjymdmBzmRyUr/fGLq5hKYH5v/qiRyg4xhQGD2bAvbPOhMie0au2gJZ06czu2TcPEVR6w5oci+WQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\latvi\\RiderProjects\\NineBotClone\\CoreBot\\CoreBot.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\latvi\\.nuget\\packages\\azure.ai.vision.common\\0.13.0-beta.1\\azure.ai.vision.common.0.13.0-beta.1.nupkg.sha512",
+    "C:\\Users\\latvi\\.nuget\\packages\\azure.ai.vision.imageanalysis\\0.13.0-beta.1\\azure.ai.vision.imageanalysis.0.13.0-beta.1.nupkg.sha512",
+    "C:\\Users\\latvi\\.nuget\\packages\\azure.core\\1.34.0\\azure.core.1.34.0.nupkg.sha512",
     "C:\\Users\\latvi\\.nuget\\packages\\concurrenthashset\\1.3.0\\concurrenthashset.1.3.0.nupkg.sha512",
     "C:\\Users\\latvi\\.nuget\\packages\\dsharpplus\\5.0.0-nightly-01488\\dsharpplus.5.0.0-nightly-01488.nupkg.sha512",
     "C:\\Users\\latvi\\.nuget\\packages\\dsharpplus.commandsnext\\5.0.0-nightly-01488\\dsharpplus.commandsnext.5.0.0-nightly-01488.nupkg.sha512",
@@ -30,12 +33,18 @@
     "C:\\Users\\latvi\\.nuget\\packages\\sixlabors.fonts\\1.0.0-beta19\\sixlabors.fonts.1.0.0-beta19.nupkg.sha512",
     "C:\\Users\\latvi\\.nuget\\packages\\sixlabors.imagesharp\\3.0.1\\sixlabors.imagesharp.3.0.1.nupkg.sha512",
     "C:\\Users\\latvi\\.nuget\\packages\\sixlabors.imagesharp.drawing\\1.0.0-beta15\\sixlabors.imagesharp.drawing.1.0.0-beta15.nupkg.sha512",
+    "C:\\Users\\latvi\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.1\\system.diagnostics.diagnosticsource.6.0.1.nupkg.sha512",
     "C:\\Users\\latvi\\.nuget\\packages\\system.drawing.common\\8.0.0-preview.2.23128.3\\system.drawing.common.8.0.0-preview.2.23128.3.nupkg.sha512",
     "C:\\Users\\latvi\\.nuget\\packages\\system.drawing.primitives\\4.3.0\\system.drawing.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\latvi\\.nuget\\packages\\system.memory\\4.5.0\\system.memory.4.5.0.nupkg.sha512",
+    "C:\\Users\\latvi\\.nuget\\packages\\system.memory.data\\1.0.2\\system.memory.data.1.0.2.nupkg.sha512",
+    "C:\\Users\\latvi\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
     "C:\\Users\\latvi\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512",
-    "C:\\Users\\latvi\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.0\\system.runtime.compilerservices.unsafe.4.5.0.nupkg.sha512",
-    "C:\\Users\\latvi\\.nuget\\packages\\system.runtime.extensions\\4.3.0\\system.runtime.extensions.4.3.0.nupkg.sha512"
+    "C:\\Users\\latvi\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\latvi\\.nuget\\packages\\system.runtime.extensions\\4.3.0\\system.runtime.extensions.4.3.0.nupkg.sha512",
+    "C:\\Users\\latvi\\.nuget\\packages\\system.text.encodings.web\\4.7.2\\system.text.encodings.web.4.7.2.nupkg.sha512",
+    "C:\\Users\\latvi\\.nuget\\packages\\system.text.json\\4.7.2\\system.text.json.4.7.2.nupkg.sha512",
+    "C:\\Users\\latvi\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512"
   ],
   "logs": []
 }
