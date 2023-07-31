@@ -1,4 +1,5 @@
-﻿using CoreBot.Slash_Commands.Game_Commands;
+﻿using CoreBot.External_Classes;
+using CoreBot.Slash_Commands.Game_Commands;
 using CoreBot.Slash_Commands.Random_commands;
 using CoreBot.Slash_Commands.Utilities;
 using DSharpPlus;
@@ -10,11 +11,14 @@ using DSharpPlus.Interactivity.Extensions;
 using DSharpPlus.SlashCommands;
 using DSharpPlus.SlashCommands.Attributes;
 using DSharpPlus.SlashCommands.EventArgs;
+using MongoDB.Bson;
+using MongoDB.Driver;
 
 namespace CoreBot;
 
 public class Bot
 {
+    
     public DiscordClient? Client { get; private set; }
     public CommandsNextExtension? Commands {get; private set; }
     
@@ -32,9 +36,14 @@ public class Bot
         {
             Timeout = TimeSpan.FromMinutes(2)
         });
-        Client.Ready += OnClientReady;
         
-        var commandsConfig = new CommandsNextConfiguration()
+        //events
+        Client.Ready += OnClientReady;
+        Client.MessageDeleted += OnMessageDeleted;
+        Client.MessageCreated += OnMessageCreated;
+        
+        
+        var commandsConfig = new CommandsNextConfiguration
         {
             StringPrefixes = new[] { Configuration.Prefix },
             EnableMentionPrefix = true,
@@ -63,13 +72,52 @@ public class Bot
         slashCommandsConfig.RegisterCommands<Purges>();
         slashCommandsConfig.RegisterCommands<StealEmojiMessage>();
         slashCommandsConfig.RegisterCommands<Translation>();
-        slashCommandsConfig.RegisterCommands<ComputerVision>();
 
         slashCommandsConfig.SlashCommandErrored += OnSlashCommandError;
         
         
         await Client.ConnectAsync();
         await Task.Delay(-1);
+
+    }
+    
+    //methods for handling arising events
+
+    private Task OnMessageCreated(DiscordClient sender, MessageCreateEventArgs e)
+    {
+        var database = new DBSetup(Configuration.MongoConnectionString, "MessageStorage").GetDatabase();
+        var collection = database.GetCollection<BsonDocument>("Messages");
+        var document = new BsonDocument
+        {
+            { "user", e.Author.Username },
+            { "userId", e.Author.Id.ToString() },
+            { "content", e.Message.Content },
+            { "contentId", e.Message.Id.ToString() },
+            { "guild", e.Guild.Name },
+            { "channel", e.Channel.Name },
+            { "channelId", e.Channel.Id.ToString() },
+            { "created", e.Message.CreationTimestamp.DateTime },
+            { "isDeleted", false }
+
+        };
+        
+        collection.InsertOne(document);
+        return Task.CompletedTask;
+    }
+
+    private Task OnMessageDeleted(DiscordClient sender, MessageDeleteEventArgs e)
+    {
+        var database = new DBSetup(Configuration.MongoConnectionString, "MessageStorage").GetDatabase();
+        var collection = database.GetCollection<BsonDocument>("Messages");
+        
+        var filter = Builders<BsonDocument>.Filter.And(Builders<BsonDocument>.Filter.Eq("userId", e.Message.Author.Id.ToString()),
+            Builders<BsonDocument>.Filter.Eq("contentId", e.Message.Id.ToString())
+        );
+
+        var update = Builders<BsonDocument>.Update.Set("isDeleted", true);
+        
+        collection.UpdateOne(filter, update);
+        return Task.CompletedTask;
     }
 
     private Task OnClientReady(DiscordClient sender, ReadyEventArgs e)

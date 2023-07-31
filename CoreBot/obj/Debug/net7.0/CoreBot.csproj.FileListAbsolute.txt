@@ -131,3 +131,16 @@ C:\Users\latvi\RiderProjects\NineBotClone\CoreBot\bin\Debug\net7.0\runtimes\win-
 C:\Users\latvi\RiderProjects\NineBotClone\CoreBot\bin\Debug\net7.0\runtimes\win-x64\native\turbojpeg.dll
 C:\Users\latvi\RiderProjects\NineBotClone\CoreBot\bin\Debug\net7.0\runtimes\linux-x64\native\libAzure-AI-Vision-Extension-Image.so
 C:\Users\latvi\RiderProjects\NineBotClone\CoreBot\bin\Debug\net7.0\runtimes\win-x64\native\Azure-AI-Vision-Extension-Image.dll
+C:\Users\latvi\RiderProjects\NineBotClone\CoreBot\bin\Debug\net7.0\AWSSDK.Core.dll
+C:\Users\latvi\RiderProjects\NineBotClone\CoreBot\bin\Debug\net7.0\AWSSDK.SecurityToken.dll
+C:\Users\latvi\RiderProjects\NineBotClone\CoreBot\bin\Debug\net7.0\DnsClient.dll
+C:\Users\latvi\RiderProjects\NineBotClone\CoreBot\bin\Debug\net7.0\MongoDB.Bson.dll
+C:\Users\latvi\RiderProjects\NineBotClone\CoreBot\bin\Debug\net7.0\MongoDB.Driver.dll
+C:\Users\latvi\RiderProjects\NineBotClone\CoreBot\bin\Debug\net7.0\MongoDB.Driver.Core.dll
+C:\Users\latvi\RiderProjects\NineBotClone\CoreBot\bin\Debug\net7.0\MongoDB.Libmongocrypt.dll
+C:\Users\latvi\RiderProjects\NineBotClone\CoreBot\bin\Debug\net7.0\SharpCompress.dll
+C:\Users\latvi\RiderProjects\NineBotClone\CoreBot\bin\Debug\net7.0\Snappier.dll
+C:\Users\latvi\RiderProjects\NineBotClone\CoreBot\bin\Debug\net7.0\ZstdSharp.dll
+C:\Users\latvi\RiderProjects\NineBotClone\CoreBot\bin\Debug\net7.0\runtimes\linux\native\libmongocrypt.so
+C:\Users\latvi\RiderProjects\NineBotClone\CoreBot\bin\Debug\net7.0\runtimes\osx\native\libmongocrypt.dylib
+C:\Users\latvi\RiderProjects\NineBotClone\CoreBot\bin\Debug\net7.0\runtimes\win\native\mongocrypt.dll

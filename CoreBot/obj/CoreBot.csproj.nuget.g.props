@@ -18,4 +18,8 @@
     <Import Project="$(NuGetPackageRoot)azure.ai.vision.common\0.13.0-beta.1\build\Azure.AI.Vision.Common.props" Condition="Exists('$(NuGetPackageRoot)azure.ai.vision.common\0.13.0-beta.1\build\Azure.AI.Vision.Common.props')" />
     <Import Project="$(NuGetPackageRoot)azure.ai.vision.imageanalysis\0.13.0-beta.1\build\Azure.AI.Vision.ImageAnalysis.props" Condition="Exists('$(NuGetPackageRoot)azure.ai.vision.imageanalysis\0.13.0-beta.1\build\Azure.AI.Vision.ImageAnalysis.props')" />
   </ImportGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgAWSSDK_Core Condition=" '$(PkgAWSSDK_Core)' == '' ">C:\Users\latvi\.nuget\packages\awssdk.core\3.7.100.14</PkgAWSSDK_Core>
+    <PkgAWSSDK_SecurityToken Condition=" '$(PkgAWSSDK_SecurityToken)' == '' ">C:\Users\latvi\.nuget\packages\awssdk.securitytoken\3.7.100.14</PkgAWSSDK_SecurityToken>
+  </PropertyGroup>
 </Project>

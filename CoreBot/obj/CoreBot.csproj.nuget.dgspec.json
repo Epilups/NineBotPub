@@ -76,6 +76,10 @@
               "target": "Package",
               "version": "[1.11.46, )"
             },
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[2.20.0, )"
+            },
             "OpenAI": {
               "target": "Package",
               "version": "[1.7.2, )"
