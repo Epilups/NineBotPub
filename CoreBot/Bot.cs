@@ -109,16 +109,18 @@ public class Bot
     {
         var database = new DBSetup(Configuration.MongoConnectionString, "MessageStorage").GetDatabase();
         var collection = database.GetCollection<BsonDocument>("Messages");
-        
+    
         var filter = Builders<BsonDocument>.Filter.And(Builders<BsonDocument>.Filter.Eq("userId", e.Message.Author.Id.ToString()),
             Builders<BsonDocument>.Filter.Eq("contentId", e.Message.Id.ToString())
         );
 
         var update = Builders<BsonDocument>.Update.Set("isDeleted", true);
-        
+    
         collection.UpdateOne(filter, update);
+        
         return Task.CompletedTask;
     }
+
 
     private Task OnClientReady(DiscordClient sender, ReadyEventArgs e)
     {
