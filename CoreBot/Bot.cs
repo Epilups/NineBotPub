@@ -39,8 +39,8 @@ public class Bot
         
         //events
         Client.Ready += OnClientReady;
-        Client.MessageDeleted += OnMessageDeleted;
-        Client.MessageCreated += OnMessageCreated;
+        //Client.MessageDeleted += OnMessageDeleted;
+        //Client.MessageCreated += OnMessageCreated;
         
         
         var commandsConfig = new CommandsNextConfiguration
@@ -83,6 +83,7 @@ public class Bot
     
     //methods for handling arising events
 
+    /*
     private Task OnMessageCreated(DiscordClient sender, MessageCreateEventArgs e)
     {
         var database = new DBSetup(Configuration.MongoConnectionString, "MessageStorage").GetDatabase();
@@ -113,6 +114,7 @@ public class Bot
         var filter = Builders<BsonDocument>.Filter.And(Builders<BsonDocument>.Filter.Eq("userId", e.Message.Author.Id.ToString()),
             Builders<BsonDocument>.Filter.Eq("contentId", e.Message.Id.ToString())
         );
+        
 
         var update = Builders<BsonDocument>.Update.Set("isDeleted", true);
     
@@ -120,6 +122,7 @@ public class Bot
         
         return Task.CompletedTask;
     }
+    */
 
 
     private Task OnClientReady(DiscordClient sender, ReadyEventArgs e)

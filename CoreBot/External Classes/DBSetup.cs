@@ -4,6 +4,7 @@ namespace CoreBot.External_Classes;
 
 public class DBSetup
 {
+    /*
     private MongoClient _client;
     private IMongoDatabase _database;
 
@@ -16,4 +17,5 @@ public class DBSetup
     {
         return _database;
     }
+    */
 }
