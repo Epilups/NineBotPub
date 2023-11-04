@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "MsFUnheYFeO4cKdNMF7pBK4W7/rQS6YYomsueyLefHfZ++qASCJH13O0sfL0wx15/PL5XE4ZFtINBfrqV9iT+Q==",
+  "dgSpecHash": "UymRvW5lkpazSwMVFjL+4pU9+DedJrjmjWMh737SMorOmT9wDHwMdH6DxFnc2M9lZ7UUihxqV5hWMEmEhNNS9w==",
   "success": true,
   "projectFilePath": "C:\\Users\\latvi\\RiderProjects\\NineBotClone\\CoreBot\\CoreBot.csproj",
   "expectedPackageFiles": [
@@ -17,6 +17,7 @@
     "C:\\Users\\latvi\\.nuget\\packages\\dsharpplus.slashcommands\\5.0.0-nightly-01488\\dsharpplus.slashcommands.5.0.0-nightly-01488.nupkg.sha512",
     "C:\\Users\\latvi\\.nuget\\packages\\gscraper\\1.1.0\\gscraper.1.1.0.nupkg.sha512",
     "C:\\Users\\latvi\\.nuget\\packages\\htmlagilitypack\\1.11.46\\htmlagilitypack.1.11.46.nupkg.sha512",
+    "C:\\Users\\latvi\\.nuget\\packages\\kuylar.dsharpplus.buttoncommands\\1.4.0\\kuylar.dsharpplus.buttoncommands.1.4.0.nupkg.sha512",
     "C:\\Users\\latvi\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\latvi\\.nuget\\packages\\microsoft.extensions.configuration\\2.1.0\\microsoft.extensions.configuration.2.1.0.nupkg.sha512",
     "C:\\Users\\latvi\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\2.1.0\\microsoft.extensions.configuration.abstractions.2.1.0.nupkg.sha512",

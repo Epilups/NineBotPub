@@ -1,5 +1,4 @@
-﻿using CoreBot.External_Classes;
-using CoreBot.Slash_Commands.Game_Commands;
+﻿using CoreBot.Slash_Commands.Game_Commands;
 using CoreBot.Slash_Commands.Random_commands;
 using CoreBot.Slash_Commands.Utilities;
 using DSharpPlus;
@@ -11,8 +10,6 @@ using DSharpPlus.Interactivity.Extensions;
 using DSharpPlus.SlashCommands;
 using DSharpPlus.SlashCommands.Attributes;
 using DSharpPlus.SlashCommands.EventArgs;
-using MongoDB.Bson;
-using MongoDB.Driver;
 
 namespace CoreBot;
 

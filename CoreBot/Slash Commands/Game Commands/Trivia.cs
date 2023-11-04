@@ -60,6 +60,7 @@ public class Trivia : ApplicationCommandModule
         response.EnsureSuccessStatusCode();
 
         var responseString = await response.Content.ReadAsStringAsync();
+        
         var triviaQuestions = JsonConvert.DeserializeObject<List<TriviaResults>>(responseString);
 
         int score = 0;

@@ -144,3 +144,4 @@ C:\Users\latvi\RiderProjects\NineBotClone\CoreBot\bin\Debug\net7.0\ZstdSharp.dll
 C:\Users\latvi\RiderProjects\NineBotClone\CoreBot\bin\Debug\net7.0\runtimes\linux\native\libmongocrypt.so
 C:\Users\latvi\RiderProjects\NineBotClone\CoreBot\bin\Debug\net7.0\runtimes\osx\native\libmongocrypt.dylib
 C:\Users\latvi\RiderProjects\NineBotClone\CoreBot\bin\Debug\net7.0\runtimes\win\native\mongocrypt.dll
+C:\Users\latvi\RiderProjects\NineBotClone\CoreBot\bin\Debug\net7.0\DSharpPlus.ButtonCommands.dll

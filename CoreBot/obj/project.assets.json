@@ -399,6 +399,19 @@
           }
         }
       },
+      "Kuylar.DSharpPlus.ButtonCommands/1.4.0": {
+        "type": "package",
+        "dependencies": {
+          "DSharpPlus": "4.4.0",
+          "Microsoft.Extensions.DependencyInjection": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/DSharpPlus.ButtonCommands.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/DSharpPlus.ButtonCommands.dll": {}
+        }
+      },
       "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
         "type": "package",
         "compile": {
@@ -1490,6 +1503,18 @@
         "lib/uap10.0/HtmlAgilityPack.dll",
         "lib/uap10.0/HtmlAgilityPack.pdb",
         "lib/uap10.0/HtmlAgilityPack.pri"
+      ]
+    },
+    "Kuylar.DSharpPlus.ButtonCommands/1.4.0": {
+      "sha512": "wdxAI/WyPywUVTTC1UOPxN/pOTo3/kd8d88EproEFr0WdY6NorOpjaNGWSKLyvPnQl8+1Xm377a6GveuX3sgig==",
+      "type": "package",
+      "path": "kuylar.dsharpplus.buttoncommands/1.4.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "kuylar.dsharpplus.buttoncommands.1.4.0.nupkg.sha512",
+        "kuylar.dsharpplus.buttoncommands.nuspec",
+        "lib/net6.0/DSharpPlus.ButtonCommands.dll"
       ]
     },
     "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
@@ -2709,6 +2734,7 @@
       "DSharpPlus.SlashCommands >= 5.0.0-nightly-01488",
       "GScraper >= 1.1.0",
       "HtmlAgilityPack >= 1.11.46",
+      "Kuylar.DSharpPlus.ButtonCommands >= 1.4.0",
       "MongoDB.Driver >= 2.20.0",
       "OpenAI >= 1.7.2",
       "SixLabors.Fonts >= 1.0.0-beta19",
@@ -2793,6 +2819,10 @@
           "HtmlAgilityPack": {
             "target": "Package",
             "version": "[1.11.46, )"
+          },
+          "Kuylar.DSharpPlus.ButtonCommands": {
+            "target": "Package",
+            "version": "[1.4.0, )"
           },
           "MongoDB.Driver": {
             "target": "Package",

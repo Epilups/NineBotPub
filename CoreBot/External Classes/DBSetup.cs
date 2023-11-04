@@ -1,5 +1,4 @@
-﻿using MongoDB.Driver;
-
+﻿
 namespace CoreBot.External_Classes;
 
 public class DBSetup
