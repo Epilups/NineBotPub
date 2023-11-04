@@ -70,7 +70,7 @@ public class OpenAIServices : ApplicationCommandModule
         else
         {
             chat.AppendSystemMessage(
-                "You are a helpful AI assistant. You can help people by answering their questions in a clear and concise way. Also, ALWAYS preface everything you say with 'According to nine, [Your response]'");
+                "You are a helpful AI assistant. You can help people by answering their questions in a clear and concise way. Also, ALWAYS preface answers to questions with 'According to nine, [Your response]'");
         }
 
         chat.AppendUserInput(query);
