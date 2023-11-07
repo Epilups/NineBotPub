@@ -1,7 +1,10 @@
-﻿using DSharpPlus.Entities;
+﻿using System.Transactions;
+using Amazon.Runtime.Internal.Endpoints.StandardLibrary;
+using DSharpPlus.Entities;
 using DSharpPlus.SlashCommands;
 using DSharpPlus.SlashCommands.Attributes;
 using OpenAI_API;
+using OpenAI_API.Images;
 using OpenAI_API.Models;
 
 namespace CoreBot.Slash_Commands.Utilities;
@@ -55,7 +58,8 @@ public class OpenAIServices : ApplicationCommandModule
         var apiKey = Configuration.PaulaKey;
         var openai = new OpenAIAPI(apiKey);
         var chat = openai.Chat.CreateConversation();
-
+        chat.Model = "gpt-4-1106-preview";
+        
         var dev = Configuration.DevMode;
         var dan = Configuration.Dan;
 
@@ -70,7 +74,7 @@ public class OpenAIServices : ApplicationCommandModule
         else
         {
             chat.AppendSystemMessage(
-                "You are a helpful AI assistant. You can help people by answering their questions in a clear and concise way. Also, ALWAYS preface answers to questions with 'According to nine, [Your response]'");
+                "You are a helpful AI assistant. You can help people by answering their questions in a clear and concise way.");
         }
 
         chat.AppendUserInput(query);
@@ -110,12 +114,12 @@ public class OpenAIServices : ApplicationCommandModule
         string prompt)
     {
         await ctx.DeferAsync();
-
+        
         var apiKey = Configuration.PaulaKey;
         var openai = new OpenAIAPI(apiKey);
         var images = openai.ImageGenerations.CreateImageAsync(prompt);
         var response = images.Result;
-
+        
         var embed2 = new DiscordEmbedBuilder
         {
             Title = $"{ctx.User.Username}: {prompt}",
