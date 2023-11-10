@@ -1,8 +1,11 @@
 ﻿using System.Transactions;
 using Amazon.Runtime.Internal.Endpoints.StandardLibrary;
+using CoreBot.External_Classes;
 using DSharpPlus.Entities;
 using DSharpPlus.SlashCommands;
 using DSharpPlus.SlashCommands.Attributes;
+using MongoDB.Bson;
+using MongoDB.Driver;
 using OpenAI_API;
 using OpenAI_API.Images;
 using OpenAI_API.Models;
@@ -108,7 +111,6 @@ public class OpenAIServices : ApplicationCommandModule
 
     [SlashCommand("imageGen", "Generate an image using OpenAI's Dall-e model.")]
     [SlashCooldown(1, 120, SlashCooldownBucketType.User)]
-
     public async Task ImageGen(InteractionContext ctx,
         [Option("prompt", "The prompt for the image creation")]
         string prompt)
@@ -129,4 +131,71 @@ public class OpenAIServices : ApplicationCommandModule
 
         await ctx.EditResponseAsync(new DiscordWebhookBuilder().AddEmbed(embed2));
     }
+    
+    
+    [SlashCommand("conversation", "Converse with GPT4-Turbo")]
+    [SlashCooldown(5, 30, SlashCooldownBucketType.User)]
+
+    public async Task Conversation(InteractionContext ctx,
+        [Option("message", "The message you want to send to the bot")]
+        string prompt)
+    {
+        await ctx.DeferAsync();
+
+        var apiKey = Configuration.PaulaKey;
+        var openai = new OpenAIAPI(apiKey);
+
+        var database = new DBSetup(Configuration.MongoConnectionString, "MessageContext").GetDatabase();
+        var collection = database.GetCollection<BsonDocument>("UserAIContext");
+
+        var filter = Builders<BsonDocument>.Filter.Eq("UserId", ctx.User.Id.ToString());
+        var userContext = collection.Find(filter).FirstOrDefault();
+
+        string context = string.Empty;
+
+        if (userContext != null)
+        {
+            // If the user has a chat history, retrieve it.
+            context = userContext["MessageContext"].AsString;
+        }
+
+        // Append the current user's message to the context.
+        if (!string.IsNullOrWhiteSpace(prompt))
+        {
+            context += Environment.NewLine + prompt;
+        }
+
+        var chat = openai.Chat.CreateConversation();
+        chat.Model = "gpt-4-1106-preview";
+        chat.AppendUserInput(context);
+        var response = chat.GetResponseFromChatbotAsync();
+            
+        // Store the updated context back into the database.
+
+        if (userContext == null)
+        {
+            
+            userContext = new BsonDocument
+            {
+                {"UserId", ctx.User.Id.ToString()},
+                {"MessageContext", "Current Conversation: " + context + "\n" + "Bot: "+ response.Result},
+            };
+            collection.InsertOne(userContext);
+        }
+        else
+        {
+            userContext["MessageContext"] = "\n" + context + "\n" + "Bot: "+ response.Result;
+            
+            collection.ReplaceOne(filter, userContext);
+        }
+
+        var embed = new DiscordEmbedBuilder
+        {
+            Color = DiscordColor.Azure,
+            Title = prompt,
+            Description = response.Result
+        };
+        await ctx.EditResponseAsync(new DiscordWebhookBuilder().AddEmbed(embed));
+    }
+
 }

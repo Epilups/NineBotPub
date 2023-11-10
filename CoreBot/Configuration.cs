@@ -3,7 +3,7 @@ namespace CoreBot;
 
 internal class Configuration
 {
-    public static string MongoConnectionString = "mongodb+srv://Admin:Y4VvWQv6gwIyAkDc@cluster0.vnccs8p.mongodb.net/";
+    public static string MongoConnectionString = "mongodb+srv://emils:SltOOIovNN2Aldmz@cluster0.b8ro2yv.mongodb.net/";
     public static string TranslationLocation = "swedencentral";
     public static string TranslationKey = "3e224858f4ad46c78a0d0c50c0267f6a";
     public static string TranslationEndpoint = "https://api.cognitive.microsofttranslator.com";
