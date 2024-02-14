@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CoreBot")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2ad20db1daabb56c40cc92630a0af10e5020bee8")]
 [assembly: System.Reflection.AssemblyProductAttribute("CoreBot")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CoreBot")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -54,7 +54,7 @@ public class Trivia : ApplicationCommandModule
         {
             url += "&difficulty=" + difficulty;
         }
-
+        
         HttpClient httpClient = new HttpClient();
         var response = await httpClient.GetAsync(url);
         response.EnsureSuccessStatusCode();
